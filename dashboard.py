@@ -166,9 +166,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
 def update_plotly_layout(fig):
     fig.update_layout(
         font=dict(family="Inter"),
-        title_font=dict(size=18, family="Inter"),
-        legend_title_font=dict(size=14),
-        margin=dict(l=20, r=20, t=50, b=20)
+        margin=dict(l=20, r=20, t=30, b=20)
     )
     return fig
 
