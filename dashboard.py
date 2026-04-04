@@ -179,11 +179,15 @@ with tab1:
     # Area chart for better visualization
     fig1 = px.area(
         filtered_df, x="Date", y=["CBP_Custody", "HHS_Discharges"],
-        labels={"value": "Number of Children", "variable": "Metric"},
         color_discrete_sequence=["#ef4444", "#10b981"]
     )
     fig1.update_traces(opacity=0.3)
     fig1 = update_plotly_layout(fig1)
+    fig1.update_layout(
+        yaxis_title="Number of Children",
+        legend_title_text="Metric",
+        hovermode="x unified"
+    )
     st.plotly_chart(fig1, use_container_width=True)
 
     c1, c2 = st.columns(2)
@@ -225,11 +229,14 @@ with tab2:
         fig2 = px.bar(
             wd_df, x="Day Type", y=["CBP_Transfers", "HHS_Discharges"], 
             barmode="group",
-            labels={"value": "Avg Volume", "variable": "Metric"},
             color_discrete_sequence=["#f59e0b", "#10b981"]
         )
         fig2 = update_plotly_layout(fig2)
         fig2.update_traces(marker_line_width=0)
+        fig2.update_layout(
+            yaxis_title="Avg Volume",
+            legend_title_text="Metric"
+        )
         st.plotly_chart(fig2, use_container_width=True)
 
 # Tab 3: Efficiency Metrics
